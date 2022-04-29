@@ -1,0 +1,24 @@
+springdoc:
+  swagger-ui:    path: /swagger-ui.html
+  api-docs:
+    enabled: true
+    
+spring:
+  datasource:
+      driver-class-name: org.h2.Driver
+      url: jdbc:h2:mem:conector
+      username: sa
+      password: sa
+      hikari:
+        connection-test-query: SELECT 1
+        maximum-pool-size: 30 
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  h2:    console:      enabled: true
+      
+application:
+  version: '@version@'
