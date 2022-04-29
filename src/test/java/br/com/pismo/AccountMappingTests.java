@@ -52,7 +52,7 @@ class AccountMappingTests extends CommonTest {
 	    
 	    AccountDto accountDto = mapper.readValue(result.getResponse().getContentAsString(), AccountDto.class);
 	    
-	    assertEquals(accountDto.getDocument(), "29534593087");
+	    assertEquals("29534593087", accountDto.getDocument());
 	    
 	}
 
