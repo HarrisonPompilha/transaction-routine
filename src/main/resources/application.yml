@@ -1,12 +1,13 @@
 springdoc:
-  swagger-ui:    path: /swagger-ui.html
+  swagger-ui:
+    path: /swagger-ui.html
   api-docs:
     enabled: true
     
 spring:
   datasource:
       driver-class-name: org.h2.Driver
-      url: jdbc:h2:mem:conector
+      url: jdbc:h2:mem:transaction
       username: sa
       password: sa
       hikari:
@@ -18,8 +19,11 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: false
-  h2:    console:      enabled: true
-      settings:        web-allow-others: true
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
       
 application:
   version: '@version@'
