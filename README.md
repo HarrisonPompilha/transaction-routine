@@ -21,3 +21,8 @@
 	user: sa
 	pass: sa
   
+ **Exercicio**
+ ![image](https://user-images.githubusercontent.com/21183665/166008591-3b4d6a4f-1f5f-4777-bd49-4b5a16c2fb7a.png)
+
+![image](https://user-images.githubusercontent.com/21183665/166008623-9c82bf44-e84d-427f-b9ec-c3aab82c6601.png)
+
