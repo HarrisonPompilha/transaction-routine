@@ -1,6 +1,8 @@
 
 ## Code Challenge Pismo
 
+Projeto feito em Springboot v2.6.7 com Java 11.
+
 **Execução no Docker**
 
 	mvn clean install
