@@ -33,7 +33,7 @@ class TransactionsMappingTests extends CommonTest {
         
         ResponseMessage responseMessage = mapper.readValue(result.getResponse().getContentAsString(), ResponseMessage.class);
         
-        assertEquals(responseMessage.getMessage(), "OK");
+        assertEquals("OK", responseMessage.getMessage());
         
     }
 
@@ -46,7 +46,7 @@ class TransactionsMappingTests extends CommonTest {
         
         ResponseMessage responseMessage = mapper.readValue(result.getResponse().getContentAsString(), ResponseMessage.class);
         
-        assertEquals(responseMessage.getMessage(), "ACCOUNT DOES NOT EXIST");
+        assertEquals("ACCOUNT DOES NOT EXIST", responseMessage.getMessage());
         
     }
     
@@ -59,7 +59,7 @@ class TransactionsMappingTests extends CommonTest {
         
         ResponseMessage responseMessage = mapper.readValue(result.getResponse().getContentAsString(), ResponseMessage.class);
         
-        assertEquals(responseMessage.getMessage(), "OPERATION TYPE DOES NOT EXIST");
+        assertEquals("OPERATION TYPE DOES NOT EXIST", responseMessage.getMessage());
         
     }
 
