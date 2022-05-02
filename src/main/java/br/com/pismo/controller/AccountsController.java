@@ -59,7 +59,7 @@ public class AccountsController {
         }
     }
     
-    @Operation(summary = "Creates an account")
+    @Operation(summary = "Get an account based on id")
     @ApiResponses(value = { 
             @ApiResponse(responseCode = "200", description = "Account Retrieved", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = AccountDto.class)) }),
             @ApiResponse(responseCode = "400", description = "Bad Request"),
