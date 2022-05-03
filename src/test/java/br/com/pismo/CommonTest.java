@@ -2,6 +2,8 @@ package br.com.pismo;
 
 import static br.com.pismo.utils.ConstantMapping.ACCOUNTS;
 
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.web.servlet.MockMvc;
@@ -22,6 +24,6 @@ public class CommonTest {
     protected TestRestTemplate restTemplate;
     
     protected String createAccount(String document) {
-        return restTemplate.postForLocation(ACCOUNTS, new AccountForm(document)).getPath(); 
+        return restTemplate.postForLocation(ACCOUNTS, new AccountForm(document, new BigDecimal("5000.00"))).getPath(); 
     }
 }

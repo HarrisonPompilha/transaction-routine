@@ -20,8 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.pismo.model.Account;
+import br.com.pismo.model.AccountCreditLimit;
 import br.com.pismo.model.dto.AccountDto;
 import br.com.pismo.model.dto.AccountForm;
+import br.com.pismo.repository.AccountCreditLimitRepository;
 import br.com.pismo.repository.AccountRepository;
 import br.com.pismo.utils.ConstantMapping;
 import io.swagger.v3.oas.annotations.Operation;
@@ -38,6 +40,9 @@ public class AccountsController {
     
     @Autowired
     private AccountRepository accountRepository;
+     
+    @Autowired
+    private AccountCreditLimitRepository accountCreditLimitRepository;
     
     @Operation(summary = "Creates an account")
     @ApiResponses(value = { 
@@ -52,6 +57,7 @@ public class AccountsController {
             Account account = new Account();
             BeanUtils.copyProperties(payload, account);
             Account saved = accountRepository.save(account);
+            accountCreditLimitRepository.save(AccountCreditLimit.builder().withAccount(saved).withAccountLimit(payload.getAccountLimit()).build());
             URI uri = uriComponentsBuilder.path(ConstantMapping.ACCOUNTS + "/{id}").buildAndExpand(saved.getId()).toUri();
             return ResponseEntity.created(uri).build();
         } else {

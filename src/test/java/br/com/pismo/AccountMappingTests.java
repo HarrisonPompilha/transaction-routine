@@ -7,6 +7,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.math.BigDecimal;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,7 +30,7 @@ class AccountMappingTests extends CommonTest {
 	void mustCreateAnAccount() throws JsonProcessingException, Exception {
 	    this.mockMvc.perform(post(ACCOUNTS)
 	            .contentType(MediaType.APPLICATION_JSON)
-	            .content(mapper.writeValueAsString(new AccountForm("98038538056"))))
+	            .content(mapper.writeValueAsString(new AccountForm("98038538056", new BigDecimal("123.00")))))
 	            .andExpect(status().isCreated())
 	            .andExpect(header().exists(HttpHeaders.LOCATION));
 	}
@@ -37,7 +39,7 @@ class AccountMappingTests extends CommonTest {
 	void mustNotCreateAnAccount() throws JsonProcessingException, Exception {
 	    this.mockMvc.perform(post(ACCOUNTS)
 	            .contentType(MediaType.APPLICATION_JSON)
-	            .content(mapper.writeValueAsString(new AccountForm("123"))))
+	            .content(mapper.writeValueAsString(new AccountForm("123", new BigDecimal("123.00")))))
 	    .andExpect(status().isBadRequest());
 	}
 	
